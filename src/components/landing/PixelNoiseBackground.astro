@@ -1,0 +1,81 @@
+---
+interface Props {
+  color?: string;    // 背景底色 (推荐 #F2EBE3)
+  opacity?: number;  // 噪点的深浅
+  density?: number;  // 噪点的密度
+}
+
+const { color = '#F2EBE3', opacity = 0.12, density = 0.12 } = Astro.props;
+---
+
+<div class="noise-container">
+  <canvas id="static-noise"></canvas>
+</div>
+
+<style define:vars={{ color }}>
+  .noise-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -50;
+    background-color: var(--color);
+    /* 避免手机端滚动时的层级抖动 */
+    transform: translate3d(0, 0, 0); 
+  }
+
+  canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+</style>
+
+<script define:vars={{ opacity, density }}>
+  const canvas = document.getElementById('static-noise');
+  // alpha: false 可以让浏览器知道不需要透明背景，稍微提升合成性能
+  // 但因为我们需要透出 CSS 的底色，这里必须用 alpha: true (默认)
+  const ctx = canvas.getContext('2d');
+
+  let resizeTimeout;
+
+  const drawNoise = () => {
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+    
+    // 【性能关键点】限制最大 DPR 为 2
+    // 在 DPR=3 的手机上，这能减少 55% 的计算量和内存占用
+    // 对于噪点纹理，2倍清晰度已经完全足够，肉眼无法分辨更高倍数
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    
+    canvas.width = w * dpr;
+    canvas.height = h * dpr;
+    
+    const imgData = ctx.createImageData(canvas.width, canvas.height);
+    const buffer = new Uint32Array(imgData.data.buffer);
+    const len = buffer.length;
+
+    // 预计算颜色值
+    const alphaVal = Math.floor(opacity * 255);
+    // Little Endian: Alpha 在高位 (ABGR)
+    const pixelValue = (alphaVal << 24) | 0x000000; 
+
+    // 循环赋值
+    for (let i = 0; i < len; i++) {
+      if (Math.random() < density) {
+        buffer[i] = pixelValue;
+      }
+    }
+
+    ctx.putImageData(imgData, 0, 0);
+  };
+
+  // 防抖
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(drawNoise, 200);
+  });
+
+  drawNoise();
+</script>

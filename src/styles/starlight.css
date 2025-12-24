@@ -1,0 +1,349 @@
+/* Starlight Custom Styling - Web5 Theme */
+
+/* Override Starlight CSS variables */
+:root {
+  --sl-color-accent: #2C4EED;
+  --sl-color-accent-high: #1A1A1A;
+  --sl-color-white: #F8F1E7;
+  --sl-color-gray-1: #F8F1E7;
+  --sl-color-gray-2: #E8E1D7;
+  --sl-color-gray-3: #D8D1C7;
+  --sl-color-gray-4: #C8C1B7;
+  --sl-color-gray-5: #444141;
+  --sl-color-gray-6: #1A1A1A;
+  --sl-color-black: #1A1A1A;
+  --sl-color-bg: #F8F1E7;
+  --sl-color-bg-nav: #F8F1E7;
+  --sl-color-bg-sidebar: #E8E1D7;
+  --sl-color-text: #1A1A1A;
+  --sl-color-text-accent: #2C4EED;
+  --sl-font: 'Tomorrow', sans-serif;
+  --sl-font-system: 'Tomorrow', sans-serif;
+}
+
+/* Body and page background */
+body {
+  background-color: #F8F1E7;
+  font-family: 'Tomorrow', sans-serif;
+}
+
+/* Starlight header styling - use more specific selectors */
+header,
+.header,
+[class*="header"] {
+  background-color: #F8F1E7 !important;
+}
+
+header *,
+.header *,
+[class*="header"] * {
+  color: #1A1A1A !important;
+  text-decoration: none !important;
+}
+
+header a,
+.header a,
+[class*="header"] a {
+  text-decoration: none !important;
+}
+
+header a:hover,
+.header a:hover,
+[class*="header"] a:hover {
+  color: #2C4EED !important;
+  text-decoration: none !important;
+}
+
+/* Starlight site title */
+.site-title,
+[class*="site-title"],
+.sl-nav a {
+  color: #1A1A1A !important;
+  font-family: 'Tomorrow', sans-serif !important;
+  text-decoration: none !important;
+}
+
+/* Search box and dialog styling - cleaner look */
+site-search {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+site-search input {
+  background-color: #F8F1E7 !important;
+  color: #1A1A1A !important;
+  border: 1px solid #1A1A1A !important;
+  border-radius: 0 !important;
+  padding: 0.5rem 1rem !important;
+}
+
+site-search button {
+  background-color: #F8F1E7 !important;
+  border: 1px solid #1A1A1A !important;
+  border-radius: 0 !important;
+  padding: 0.5rem 1rem !important;
+  color: #1A1A1A !important;
+}
+
+site-search svg {
+  color: #1A1A1A !important;
+  fill: #1A1A1A !important;
+}
+
+/* Search dialog */
+.search-dialog,
+[class*="search"] {
+  background-color: #F8F1E7 !important;
+  color: #1A1A1A !important;
+}
+
+.search-dialog *,
+[class*="search"] * {
+  color: #1A1A1A !important;
+}
+
+/* Dialog frame (search modal) - ensure light theme */
+.dialog-frame,
+.dialog-frame * {
+  background-color: #F8F1E7 !important;
+  color: #1A1A1A !important;
+}
+
+/* Cancel / close button in dialog */
+.dialog-frame button[data-close-modal],
+.dialog-frame button {
+  background-color: #F8F1E7 !important;
+  color: #1A1A1A !important;
+  border: 1px solid #1A1A1A !important;
+  padding: 0.5rem 1rem !important;
+}
+
+/* Ensure centered message text is visible */
+.dialog-frame > div,
+.dialog-frame > div * {
+  background-color: transparent !important;
+  color: #1A1A1A !important;
+}
+
+/* Hide theme selector only */
+starlight-theme-select,
+[data-theme-toggle],
+.theme-toggle,
+[class*="theme-select"] {
+  display: none !important;
+}
+
+/* Social icons - keep visible and style properly */
+.social-icons {
+  display: flex !important;
+}
+
+.social-icons a {
+  color: #1A1A1A !important;
+  text-decoration: none !important;
+}
+
+.social-icons a:hover {
+  color: #2C4EED !important;
+}
+
+/* Main page wrapper with centered max-width */
+.page {
+  background-color: #F8F1E7;
+  max-width: 1440px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Main frame inner wrapper with beige background */
+.page > * {
+  background-color: #F8F1E7;
+}
+
+/* Remove floating vertical border lines in docs - they interfere with Starlight layout */
+
+/* Sidebar */
+.sidebar {
+  background-color: #E8E1D7;
+  border-right: 1px solid #1A1A1A;
+}
+
+.sidebar * {
+  color: #1A1A1A;
+}
+
+.sidebar nav a {
+  color: #1A1A1A;
+  font-family: 'Tomorrow', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.sidebar nav a:hover {
+  color: #2C4EED;
+}
+
+.sidebar nav a[aria-current='page'] {
+  color: #2C4EED;
+  font-weight: 600;
+}
+
+.sidebar summary,
+.sidebar h2,
+.sidebar h3,
+.sidebar span {
+  color: #1A1A1A !important;
+}
+
+/* Main content */
+.main-frame {
+  background-color: #F8F1E7;
+}
+
+/* Content typography */
+.sl-markdown-content {
+  font-family: 'Tomorrow', sans-serif;
+  color: #1A1A1A;
+}
+
+.sl-markdown-content h1,
+.sl-markdown-content h2,
+.sl-markdown-content h3,
+.sl-markdown-content h4,
+.sl-markdown-content h5,
+.sl-markdown-content h6 {
+  font-family: 'Tomorrow', sans-serif;
+  color: #1A1A1A !important;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.sl-markdown-content h1:first-child {
+  color: #1A1A1A !important;
+  background-color: transparent !important;
+}
+
+/* Page title */
+h1[id="_top"] {
+  color: #1A1A1A !important;
+  background-color: transparent !important;
+}
+
+.sl-markdown-content h1 {
+  font-size: 56px;
+  line-height: 1em;
+  margin-bottom: 1.5rem;
+}
+
+.sl-markdown-content h2 {
+  font-size: 32px;
+  line-height: 1.1em;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
+.sl-markdown-content h3 {
+  font-size: 18px;
+  line-height: 1.2em;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.sl-markdown-content h4 {
+  font-size: 16px;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.sl-markdown-content p,
+.sl-markdown-content li {
+  font-family: 'Tomorrow', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.6em;
+  color: #1A1A1A;
+}
+
+.sl-markdown-content a {
+  color: #2C4EED;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+  transition: opacity 0.2s ease;
+}
+
+.sl-markdown-content a:hover {
+  opacity: 0.7;
+}
+
+/* Code blocks */
+.sl-markdown-content pre {
+  background-color: #E8E1D7;
+  border: 2px solid #1A1A1A;
+  border-radius: 0;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+}
+
+.sl-markdown-content code {
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+}
+
+.sl-markdown-content pre code {
+  color: #1A1A1A;
+}
+
+.sl-markdown-content :not(pre) > code {
+  background-color: #E8E1D7;
+  color: #1A1A1A;
+  padding: 2px 6px;
+  border-radius: 0;
+  font-size: 13px;
+}
+
+.link-title{
+  color: black;
+}
+
+/* Right sidebar / TOC */
+.right-sidebar {
+  background-color: #F8F1E7;
+  border-left: 1px solid #1A1A1A;
+}
+
+.right-sidebar h2 {
+  font-family: 'Tomorrow', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #1A1A1A;
+}
+
+.right-sidebar a {
+  font-family: 'Tomorrow', sans-serif;
+  font-size: 13px;
+  color: #444141;
+  text-decoration: none;
+}
+
+.right-sidebar a:hover {
+  color: #2C4EED;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .sl-markdown-content h1 {
+    font-size: 40px;
+  }
+  
+  .sl-markdown-content h2 {
+    font-size: 24px;
+  }
+  
+  .sl-markdown-content h3 {
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,173 @@
+/* Font Imports */
+@import "@fontsource/poppins/400.css";
+@import "@fontsource/jersey-10/400.css";
+@import "@fontsource/tomorrow/400.css";
+@import "@fontsource/tomorrow/500.css";
+@import "@fontsource/tomorrow/600.css";
+
+@import "tailwindcss";
+
+@theme {
+  /* Colors - From Figma Design */
+  --color-web5-beige: #F8F1E7;
+  --color-web5-red: #B52424;
+  --color-web5-blue: #2C4EED;
+  --color-web5-yellow: #FFD84D;
+  --color-web5-green: #58BC82;
+  --color-web5-purple: #7951BF;
+  --color-web5-dark: #1A1A1A;
+  --color-web5-gray: #444141;
+  
+  /* Typography - Font Families */
+  --font-poppins: "Poppins", sans-serif;
+  --font-tomorrow: "Tomorrow", sans-serif;
+  --font-jersey: "Jersey 10", monospace;
+}
+
+/* Base Styles */
+body {
+  color: var(--color-web5-dark);
+  font-family: var(--font-tomorrow);
+}
+
+/* Typography Classes from Figma */
+.text-h1 {
+  font-family: var(--font-jersey);
+  font-weight: 400;
+  font-size: 120px;
+  line-height: 1em;
+  text-transform: uppercase;
+}
+
+.text-h2 {
+  font-family: var(--font-jersey);
+  font-weight: 400;
+  font-size: 100px;
+  line-height: 1em;
+  text-transform: uppercase;
+}
+
+.text-h3 {
+  font-family: var(--font-tomorrow);
+  font-weight: 600;
+  font-size: 56px;
+  line-height: 1em;
+  text-transform: uppercase;
+}
+
+.text-h4 {
+  font-family: var(--font-tomorrow);
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 1.1em;
+  text-transform: uppercase;
+}
+
+.text-h5 {
+  font-family: var(--font-tomorrow);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.2em;
+  text-transform: uppercase;
+}
+
+.text-subheader1 {
+  font-family: var(--font-tomorrow);
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 1.4em;
+}
+
+.text-subheader2 {
+  font-family: var(--font-tomorrow);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.4em;
+}
+
+.text-body {
+  font-family: var(--font-tomorrow);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.4em;
+}
+
+.text-button1 {
+  font-family: var(--font-tomorrow);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1em;
+}
+
+.text-button2 {
+  font-family: var(--font-tomorrow);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1em;
+}
+
+.text-hero-tagline {
+  font-family: var(--font-tomorrow);
+  font-weight: 600;
+  font-size: 80px;
+  line-height: 1.08em;
+  text-transform: uppercase;
+}
+
+.text-logo {
+  font-family: var(--font-poppins);
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1.08em;
+}
+
+/* Animation Keyframes */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+}
+
+/* Button Styles */
+.btn-primary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border: 2px solid var(--color-web5-dark);
+  font-family: var(--font-tomorrow);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1em;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-web5-dark);
+  color: white;
+}
+
+/* Responsive Typography - Tablet */
+@media (max-width: 768px) {
+  .text-h1 { font-size: 80px; }
+  .text-h2 { font-size: 64px; }
+  .text-h3 { font-size: 40px; }
+  .text-subheader1 { font-size: 32px; }
+  .text-hero-tagline { font-size: 48px; }
+}
+
+/* Responsive Typography - Mobile */
+@media (max-width: 375px) {
+  .text-h1 { font-size: 48px; }
+  .text-h2 { font-size: 40px; }
+  .text-h3 { font-size: 28px; }
+  .text-subheader1 { font-size: 24px; }
+  .text-hero-tagline { font-size: 28px; }
+}

@@ -1,0 +1,41 @@
+---
+const resources = [
+  {
+    title: 'TECH STACK',
+    desc: 'A ready-to-use kit for building decentralized apps. DIDs, VCs, and DWNs.',
+    link: '/docs/tech-stack'
+  },
+  {
+    title: 'OFFICIAL DOC',
+    desc: 'Read the full spec and get started today.',
+    link: '/docs'
+  },
+  {
+    title: 'SHOWCASE',
+    desc: 'Apps built on Web5 that set the standard for the ecosystem.',
+    link: '/showcase'
+  },
+  {
+    title: 'BLOG',
+    desc: 'Read about the latest updates, deep dives, and tutorials.',
+    link: '/blog'
+  }
+];
+---
+<section class="w-full">
+  <div class="bg-web5-green py-4 border-b-2 border-web5-dark text-center">
+    <h2 class="text-4xl sm:text-5xl font-black uppercase tracking-tighter">Additional Resources</h2>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+    {resources.map((item, index) => (
+      <div class={`p-8 border-b-2 border-web5-dark ${index !== 3 ? 'lg:border-r-2' : ''} ${index % 2 === 0 && index !== 2 ? 'sm:border-r-2' : ''}`}>
+        <h3 class="text-xl font-black uppercase mb-4">{item.title}</h3>
+        <p class="text-sm font-medium mb-8 min-h-[80px]">{item.desc}</p>
+        <a href={item.link} class="inline-block w-full text-center py-2 border-2 border-web5-dark font-bold hover:bg-web5-dark hover:text-white transition-colors uppercase text-xs">
+          Explore
+        </a>
+      </div>
+    ))}
+  </div>
+</section>

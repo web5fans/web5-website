@@ -1,0 +1,277 @@
+---
+
+---
+
+<section class="hero-section w-full flex flex-col items-center relative overflow-hidden">
+  <!-- Noise overlay for grainy texture -->
+  <div class="noise-overlay"></div>
+  
+  <!-- Main Hero Container -->
+  <div class="hero-content relative w-full max-w-[1400px] mx-auto flex flex-col items-center justify-center z-10">
+    <!-- Pill wrapper for animation -->
+    <div class="pill-wrapper" id="pillWrapper">
+      <!-- Blue half (left) - animates left -->
+      <div class="pill-half pill-blue" id="pillBlue">
+        <div class="pill-half-inner bg-web5-blue"></div>
+      </div>
+      <!-- Red half (right) - animates right -->
+      <div class="pill-half pill-red" id="pillRed">
+        <div class="pill-half-inner bg-web5-red"></div>
+      </div>
+      
+      <!-- WEB5 text centered on pill -->
+      <span class="pill-text text-web5-beige" id="pillText">WEB5</span>
+    </div>
+
+    <!-- Tagline - hidden initially, reveals after animation -->
+    <div class="tagline" id="tagline">
+      <p class="tagline-text">KNOW WHICH YOU SWALLOWED</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Animation trigger - on scroll or click
+  const pillWrapper = document.getElementById('pillWrapper');
+  const pillBlue = document.getElementById('pillBlue');
+  const pillRed = document.getElementById('pillRed');
+  const pillText = document.getElementById('pillText');
+  const tagline = document.getElementById('tagline');
+  
+  let progress = 0;
+  let isAnimating = false;
+  let animationComplete = false;
+
+  function updateAnimation(prog: number) {
+    progress = Math.max(0, Math.min(1, prog));
+    
+    // Update transforms
+    if (pillBlue) pillBlue.style.transform = `translateX(${-150 * progress}%)`;
+    if (pillRed) pillRed.style.transform = `translateX(${150 * progress}%)`;
+    if (pillText) pillText.style.opacity = `${1 - progress}`;
+    
+    // Reveal tagline after animation progresses more
+    if (progress > 0.7) {
+      if (tagline) {
+        tagline.style.opacity = '1';
+        tagline.style.transform = 'translate(-50%, -50%)';
+      }
+    } else {
+      if (tagline) {
+        tagline.style.opacity = '0';
+        tagline.style.transform = 'translate(-50%, calc(-50% + 40px))';
+      }
+    }
+    
+    if (progress >= 1) {
+      animationComplete = true;
+      isAnimating = false;
+      // Remove wheel listener after completion
+      window.removeEventListener('wheel', handleWheel);
+    }
+  }
+
+  function handleWheel(e: WheelEvent) {
+    e.preventDefault();
+    if (animationComplete) return;
+    
+    isAnimating = true;
+    const delta = e.deltaY * 0.001; // Adjust sensitivity
+    updateAnimation(progress + delta);
+  }
+
+  // Trigger on click/tap - instant completion
+  pillWrapper?.addEventListener('click', () => {
+    updateAnimation(1);
+  });
+
+  // Intersection Observer to start/stop wheel capture
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !animationComplete) {
+        window.addEventListener('wheel', handleWheel, { passive: false });
+      } else {
+        window.removeEventListener('wheel', handleWheel);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  if (pillWrapper) {
+    observer.observe(pillWrapper);
+  }
+
+  // Fallback: trigger on scroll if not animated
+  let scrollTimeout: ReturnType<typeof setTimeout>;
+  window.addEventListener('scroll', () => {
+    if (animationComplete || isAnimating) return;
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+      if (window.scrollY > 100) {
+        updateAnimation(1);
+      }
+    }, 50);
+  }, { passive: true });
+</script>
+
+<style>
+  .hero-section {
+    position: relative;
+    min-height: 560px;
+    padding: 150px 0;
+  }
+
+  .hero-content {
+    height: 100%;
+    min-height: 260px;
+  }
+
+  .noise-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .pill-wrapper {
+    position: relative;
+    width: 1160px;
+    height: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .pill-half {
+    position: absolute;
+    width: 580px;
+    height: 260px;
+    overflow: hidden;
+  }
+
+  .pill-blue {
+    left: 0;
+  }
+
+  .pill-red {
+    right: 0;
+  }
+
+  .pill-half-inner {
+    width: 100%;
+    height: 100%;
+  }
+
+  .pill-blue .pill-half-inner {
+    border-radius: 9999px 0 0 9999px;
+  }
+
+  .pill-red .pill-half-inner {
+    border-radius: 0 9999px 9999px 0;
+  }
+
+  .pill-text {
+    position: relative;
+    z-index: 10;
+    font-family: var(--font-jersey);
+    font-size: 200px;
+    font-weight: 400;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+
+  /* Tagline styles */
+  .tagline {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, calc(-50% + 40px));
+    opacity: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .tagline-text {
+    font-family: var(--font-tomorrow);
+    font-weight: 600;
+    font-size: 80px;
+    line-height: 1.08;
+    text-transform: uppercase;
+    -webkit-text-stroke: 2px var(--color-web5-dark);
+  }
+
+
+
+  /* Responsive styles - Tablet */
+  @media (max-width: 1200px) {
+    .pill-wrapper {
+      width: 728px;
+      height: 260px;
+    }
+
+    .pill-half {
+      width: 364px;
+    }
+
+    .pill-text {
+      font-size: 140px;
+    }
+
+    .tagline-text {
+      font-size: 56px;
+    }
+  }
+
+  /* Responsive styles - Mobile */
+  @media (max-width: 768px) {
+    .hero-section {
+      min-height: 400px;
+      padding: 110px 0;
+    }
+
+    .pill-wrapper {
+      width: 343px;
+      height: 180px;
+    }
+
+    .pill-half {
+      width: 171.5px;
+      height: 180px;
+    }
+
+    .pill-text {
+      font-size: 80px;
+    }
+
+    .tagline-text {
+      font-size: 28px;
+      -webkit-text-stroke: 1px var(--color-web5-dark);
+    }
+  }
+
+  @media (max-width: 400px) {
+    .pill-wrapper {
+      width: 300px;
+      height: 160px;
+    }
+
+    .pill-half {
+      width: 150px;
+      height: 160px;
+    }
+
+    .pill-text {
+      font-size: 70px;
+    }
+
+    .tagline-text {
+      font-size: 24px;
+    }
+  }
+</style>
