@@ -85,6 +85,14 @@ site-search button {
   color: #1A1A1A !important;
 }
 
+site-search button > kbd {
+  background-color: #F8F1E7 !important;
+  color: #1A1A1A !important;
+  border: 1px solid #1A1A1A !important;
+  padding: 2px 6px !important;
+  font-size: 13px !important;
+}
+
 site-search svg {
   color: #1A1A1A !important;
   fill: #1A1A1A !important;
@@ -288,8 +296,7 @@ h1[id="_top"] {
 }
 
 .sl-markdown-content code {
-  font-family: 'Courier New', monospace;
-  font-size: 13px;
+  
 }
 
 .sl-markdown-content pre code {
@@ -333,6 +340,10 @@ h1[id="_top"] {
   color: #2C4EED;
 }
 
+.pagination-links > a > span{
+  color: #1A1A1A !important;
+}
+
 /* Mobile responsive */
 @media (max-width: 768px) {
   .sl-markdown-content h1 {
@@ -346,4 +357,12 @@ h1[id="_top"] {
   .sl-markdown-content h3 {
     font-size: 16px;
   }
+}
+
+mobile-starlight-toc > nav > details > summary > :first-child {
+  background-color: #F8F1E7;
+}
+
+mobile-starlight-toc > nav > details > summary > .display-current {
+  color: black !important;
 }
