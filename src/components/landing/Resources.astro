@@ -2,40 +2,47 @@
 const resources = [
   {
     title: 'TECH STACK',
-    desc: 'A ready-to-use kit for building decentralized apps. DIDs, VCs, and DWNs.',
+    desc: 'A modular Web5 foundation built on DID:CKB, Fiber, and ATProto—unlocking decentralized identity, data, and social protocols.',
     link: '/docs/tech-stack'
   },
   {
     title: 'OFFICIAL DOC',
-    desc: 'Read the full spec and get started today.',
+    desc: 'Documentation for the Web5 ecosystem, explaining core protocols, architecture, and how everything fits together.',
     link: '/docs'
   },
   {
     title: 'SHOWCASE',
-    desc: 'Apps built on Web5 that set the standard for the ecosystem.',
+    desc: 'A collection of Web5 projects and proposals that highlight real use cases, standards, and open development in the ecosystem.',
     link: '/showcase'
   },
   {
     title: 'BLOG',
-    desc: 'Read about the latest updates, deep dives, and tutorials.',
+    desc: 'Ongoing technical updates, experiments, and insights from building Web5 tools, libraries, and protocols in the open.',
     link: '/blog'
   }
 ];
 ---
-<section class="w-full">
-  <div class="bg-web5-green py-4 border-b-2 border-web5-dark text-center">
-    <h2 class="text-4xl sm:text-5xl font-black uppercase tracking-tighter">Additional Resources</h2>
-  </div>
+<!-- Additional Resources -->
+  <div class="w-full border-t">
+    <!-- Green Header -->
+    <div class="w-full bg-web5-green p-12 lg:p-16 flex items-center justify-center">
+      <h2 class="text-h3 text-web5-dark">ADDITIONAL RESOURCES</h2>
+    </div>
 
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
-    {resources.map((item, index) => (
-      <div class={`p-8 border-b-2 border-web5-dark ${index !== 3 ? 'lg:border-r-2' : ''} ${index % 2 === 0 && index !== 2 ? 'sm:border-r-2' : ''}`}>
-        <h3 class="text-xl font-black uppercase mb-4">{item.title}</h3>
-        <p class="text-sm font-medium mb-8 min-h-[80px]">{item.desc}</p>
-        <a href={item.link} class="inline-block w-full text-center py-2 border-2 border-web5-dark font-bold hover:bg-web5-dark hover:text-white transition-colors uppercase text-xs">
-          Explore
-        </a>
-      </div>
-    ))}
+    <!-- Resource Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+      {resources.map(resource => (
+        <div class="p-8 lg:p-12 flex flex-col justify-between border-r border-b min-h-[400px]">
+          <div>
+            <h3 class="text-h4 text-web5-dark mb-6">{resource.title}</h3>
+            <p class="text-body text-web5-dark leading-relaxed mb-8">
+              {resource.desc}
+            </p>
+          </div>
+          <a target="_blank" href={resource.link} class="border-2 border-web5-dark px-8 py-3 text-button1 text-web5-dark hover:bg-web5-dark hover:text-web5-beige transition-colors w-fit">
+            Explore
+          </a>
+        </div>
+      ))}
+    </div>
   </div>
-</section>
