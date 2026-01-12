@@ -1,53 +1,36 @@
 ---
-title: Web5 Documentation
-description: Build decentralized applications with Web5. Own your data, identity, and future.
+title: What is Web5 and Why Does it Matter? 
+description: Understanding the significance of Web5 in the context of Web2 and Web3.
 ---
 
-Web5 is a decentralized web platform that lets you build applications where users truly own their data and identity. No more centralized servers controlling your information—with Web5, the power belongs to the people.
+## The idea
 
-## What is Web5?
+The significance of Web5 lies in drawing a clear boundary visible to people: the boundary between non-custody and custody, high cost and low cost, censorable and censorship-resistant, self-sovereign and platform-sovereign.
 
-Web5 combines the best of Web 2.0 and Web 3.0, bringing decentralized identity and data storage to the web without requiring blockchain knowledge. It's designed to be developer-friendly and user-centric.
+Web5 = Web2 + Web3. Web2 is low-cost with good user experience but censorable, while Web3 is high-cost with poor user experience but censorship-resistant. Web2/Web3 represent two different goals, two different set of trade-offs, two worlds that need cooperation as well as clear boundaries. Without recognizing this point and always trying to pursue two conflicting goals within one architecture, the final result will be either getting nothing or having one devour another - usually the one optimize for short-term devour the one looking for long-term. As we see today, so-called decentralized applications endlessly compromise security and censorship-resistance for the sake of pursuing a web2-like experience. Only by acknowledging the existence of boundaries can both Web2/Web3 become better.
 
-### Key Features
+The boundary between Web2 and Web3 should be reflected in economic and technical architecture. The economic boundary is evident in the free experience of using Web2 versus the high costs of using Web3, including on-chain resource usage costs (such as transaction fees, on-chain computation fees, and rental for on-chain space), node operation costs, private key management costs, etc. The technical architecture boundary lies in whether censorship-resistance can be achieved. Only users willing to pay higher costs can truly enjoy the world of Web3 with fully owned, censorship-resistant assets. If user experience and low cost are prioritized over security and censorship-resistance, centralized or semi-centralized systems would be a better choice.
 
-- **Decentralized Identifiers (DIDs)**: Create and manage your own identity without relying on centralized authorities
-- **Verifiable Credentials**: Prove attributes about yourself without exposing unnecessary information
-- **Decentralized Web Nodes (DWNs)**: Store and manage your data across multiple nodes you control
-- **Self-Sovereign Identity**: Users own and control their digital identity and data
+Explicit boundaries are what differentiate Web5 from Web3. The pursuit of clear boundaries in Web5 can enable a positive collaboration between the two worlds, making both Web2 and Web3 better. In contrast, in the worldview of Web3 or that everything should be on-chain, boundaries are vague, always trying to fit different goals and trade-offs into one or many blockchains, attempting to convince people that user experience, low cost, security, and censorship resistance can all be achieved simultaneously. In fact, this approach only makes Web3 increasingly resemble Web2.
 
-## Why Web5?
+How can Web5 make both Web2 and Web3 better? In the world of Web5, web5/3 should be open, verifiable, and censorship-resistant systems, such as L1 chains or L2 (rollups, channels) that can provide security and censorship resistance matching L1. This part trades costs for high security and censorship resistance. web5/2 is not censorship-resistant but can still achieve openness and verifiability. Openness means open-source code, migratable private data, accessible and replicable public data; verifiability means any node or client can locally verify requests/transactions/data related to itself are correct, such as nostr, atproto, DHT, semi-centralized/permissioned blockchains.
 
-The current web is broken. Your data is scattered across countless platforms, locked in corporate silos. Web5 fixes this by:
+Only on this basis there’re choices. Web5 developers can choose and combine web5/2 and web5/3 tech to meet the needs of their respective scenarios, providing the best experience through web2 and secure, censorship-resistant assets/contracts through web3. Users with different needs and cost preferences can choose different web5 applications respectively, without being forced to accept a Web3 that increasingly resembles Web2.
 
-1. **Data Ownership**: You control where your data lives and who can access it
-2. **Portable Identity**: One identity works across all applications
-3. **Privacy First**: Share only what you choose to share
-4. **Interoperability**: Your data works seamlessly across different applications
+## The Tech Stack
 
-## Getting Started
+At the end of the day, Web5 is a idea and a vision. 
+It is also a series of principles on how to build the right software for the right purpose.
+By leverage these principles, we can explore and build tech stacks that embodies the vision of Web5.
 
-Ready to build with Web5? Check out our guides to start developing decentralized applications:
+It shall be noted that anyone can use their own tech stack to build Web5 applications. 
+As long as the applications adhere to the principles of clear labeling, on-chain and off-chains, self-sovereignty, and user control, they can be considered part of the Web5 ecosystem.
+To explore such a tech stack, [the Web5 fans](https://web5.fans/) have been putting efforts and proposed a specific Web5 tech stack that consists of the following core components:
+- **CKB DIDs**: [A new type of identifier](https://github.com/web5fans/did-ckb) that enables verifiable, self-sovereign digital identities on the CKB blockchain.
+- **AT Protocol**: [A decentralized social network protocol](https://atproto.com/) that allows users to own their data and control their online identity proposed by Bluesky.
+- **Fiber Network**: [A channel network](https://fiber.world/) that enables fast, low-cost, and multi-assets transfers for off-chain, high-throughput usage.
+- **RGB++ Protocol**: [The isomorphic bindings between Bitcoin and CKB blockchain](https://www.rgbppfans.com/). It allow Bitcoin to join the Web5 ecosystem without building a bridge or sacrifices the security.
+- **Nostr Protocol**: [A simple standard](https://nostr.com/) that defines a scalable architecture of clients and servers that can be used to spread information freely.
 
-- [Quick Start Guide](/docs/guides/quickstart) - Get up and running in minutes
-- [Core Concepts](/docs/guides/core-concepts) - Understand the fundamentals
-- [API Reference](/docs/reference/api-overview) - Explore the Web5 SDK
-
-## Community & Resources
-
-Join the Web5 community and start building the decentralized future:
-
-- **GitHub**: Contribute to open source Web5 projects
-- **Discord**: Connect with other developers
-- **Twitter**: Stay updated with the latest news
-- **Forums**: Ask questions and share your projects
-
----
-
-<div style="padding: 2rem; border: 2px solid #1A1A1A; margin-top: 3rem; background-color: rgba(44, 78, 237, 0.05);">
-  <h3 style="margin-top: 0;">Ready to Build?</h3>
-  <p>Start creating decentralized applications that put users in control.</p>
-  <a href="/docs/guides/quickstart" style="display: inline-flex; padding: 12px 24px; border: 2px solid #1A1A1A; background-color: #1A1A1A; color: #F8F1E7; text-decoration: none; text-transform: uppercase; font-weight: 600; margin-top: 1rem; transition: opacity 0.2s;">
-    Get Started →
-  </a>
-</div>
+It shall be noted that the above tech stack is just one of the possible implementations of Web5 principles. And such a effort is still at an early stage. We are trying to put these components together and will share more details in the near future. 
+If you would love to learn more, please check out the [web5-wips](https://github.com/web5fans/web5-wips), which is a collection of Web5 Improvement Proposals (WIPs) that describe standards and protocols for the web5 tech stack. Join [the discussion](https://discord.gg/web5fans) here.
