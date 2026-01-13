@@ -36,7 +36,8 @@ This method leverages existing wallet infrastructure to perform deterministic si
 1. User authorizes the application to connect with their wallet
 2. Application requests specific signing capabilities through the wallet's permission system
 3. Pseudocode to generate a deterministic private key using the wallet's signing API:
-      ```javascript
+
+   ```javascript
    // Example of using wallet signing API instead of direct key derivation
    // NOTE: Wallet must implement RFC6979 compliant deterministic signatures
    let pathIndex = 0;
@@ -53,12 +54,12 @@ This method leverages existing wallet infrastructure to perform deterministic si
        didMethod: "did:ckb",
        keyType: "secp256k1",
        data: "signingKey",
-       derivationPath: derivationPath
+       derivationPath: derivationPath,
      });
 
      // Use signatureResult as seed input to generate a candidate private key
      candidatePrivateKey = await crypto.subtle.digest(
-       'SHA-256',
+       "SHA-256",
        new TextEncoder().encode(signatureResult)
      );
 
@@ -66,25 +67,29 @@ This method leverages existing wallet infrastructure to perform deterministic si
      const keyArray = new Uint8Array(candidatePrivateKey);
 
      // Check if key is valid for the selected curve, for secp256k1, key must be > 0 and < curve order
-    const curveOrder = new BigInt('0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141');
-    const keyBigInt = bytesToBigInt(keyArray);
-    isValidKey = keyBigInt > 0 && keyBigInt < curveOrder;
+     const curveOrder = new BigInt(
+       "0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141"
+     );
+     const keyBigInt = bytesToBigInt(keyArray);
+     isValidKey = keyBigInt > 0 && keyBigInt < curveOrder;
 
-    if (!isValidKey) {
-      // If invalid, try with an incremented path index
-      pathIndex++;
-    }
+     if (!isValidKey) {
+       // If invalid, try with an incremented path index
+       pathIndex++;
+     }
    }
 
    // Now candidatePrivateKey contains a valid private key derived from the signature
    // Use it for application-specific cryptographic operations
    // This key will be the same across devices if using the same wallet seed
    ```
+
 4. To rotate keys, the application can request the wallet to generate a new key pair using the same derivation path but with a new index.
 
 #### Security Benefits
 
 With this approach:
+
 - Private keys never leave the secure wallet environment
 - Key derivation happens within trusted, audited code
 - Hardware security modules (HSMs) or secure enclaves can be leveraged
@@ -94,6 +99,7 @@ With this approach:
 #### Multi-Device Support
 
 Multi-device support is achieved through wallet recovery mechanisms:
+
 - Users back up their wallet recovery phrase (typically BIP39 mnemonic)
 - The same wallet can be restored on multiple devices
 - Signing operations produce identical results across all devices
@@ -101,6 +107,7 @@ Multi-device support is achieved through wallet recovery mechanisms:
 #### Wallet Compatibility Requirements
 
 For this approach to work seamlessly:
+
 - Applications must integrate with standard wallet connection protocols
 - A standard derivation path scheme should be established for web5 did
 - Applications should verify wallet compatibility before attempting operations

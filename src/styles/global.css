@@ -9,15 +9,15 @@
 
 @theme {
   /* Colors - From Figma Design */
-  --color-web5-beige: #F8F1E7;
-  --color-web5-red: #B52424;
-  --color-web5-blue: #2C4EED;
-  --color-web5-yellow: #FFD84D;
-  --color-web5-green: #58BC82;
-  --color-web5-purple: #7951BF;
-  --color-web5-dark: #1A1A1A;
+  --color-web5-beige: #f8f1e7;
+  --color-web5-red: #b52424;
+  --color-web5-blue: #2c4eed;
+  --color-web5-yellow: #ffd84d;
+  --color-web5-green: #58bc82;
+  --color-web5-purple: #7951bf;
+  --color-web5-dark: #1a1a1a;
   --color-web5-gray: #444141;
-  
+
   /* Typography - Font Families */
   --font-poppins: "Poppins", sans-serif;
   --font-tomorrow: "Tomorrow", sans-serif;
@@ -156,18 +156,38 @@ body {
 
 /* Responsive Typography - Tablet */
 @media (max-width: 768px) {
-  .text-h1 { font-size: 80px; }
-  .text-h2 { font-size: 64px; }
-  .text-h3 { font-size: 40px; }
-  .text-subheader1 { font-size: 32px; }
-  .text-hero-tagline { font-size: 48px; }
+  .text-h1 {
+    font-size: 80px;
+  }
+  .text-h2 {
+    font-size: 64px;
+  }
+  .text-h3 {
+    font-size: 40px;
+  }
+  .text-subheader1 {
+    font-size: 32px;
+  }
+  .text-hero-tagline {
+    font-size: 48px;
+  }
 }
 
 /* Responsive Typography - Mobile */
 @media (max-width: 375px) {
-  .text-h1 { font-size: 48px; }
-  .text-h2 { font-size: 40px; }
-  .text-h3 { font-size: 28px; }
-  .text-subheader1 { font-size: 24px; }
-  .text-hero-tagline { font-size: 28px; }
+  .text-h1 {
+    font-size: 48px;
+  }
+  .text-h2 {
+    font-size: 40px;
+  }
+  .text-h3 {
+    font-size: 28px;
+  }
+  .text-subheader1 {
+    font-size: 24px;
+  }
+  .text-hero-tagline {
+    font-size: 28px;
+  }
 }

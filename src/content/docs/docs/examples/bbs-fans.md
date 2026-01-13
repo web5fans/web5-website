@@ -7,6 +7,6 @@ description: Build a decentralized Web5 community application
 
 It is fully open-source:
 
-- [bbs](https://github.com/web5fans/bbs):	app view
-- [bbs-fe](https://github.com/web5fans/bbs-fe):	app Front-end
-- [bbs_deploy](https://github.com/web5fans/bbs_deploy):	deployment scripts
+- [bbs](https://github.com/web5fans/bbs): app view
+- [bbs-fe](https://github.com/web5fans/bbs-fe): app Front-end
+- [bbs_deploy](https://github.com/web5fans/bbs_deploy): deployment scripts

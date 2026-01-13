@@ -1,5 +1,5 @@
 ---
-title: What is Lexicon 
+title: What is Lexicon
 description: Complete reference for the Web5 Lexicon
 ---
 

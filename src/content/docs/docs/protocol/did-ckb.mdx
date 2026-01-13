@@ -8,6 +8,7 @@ The `did:ckb` method is a Decentralized Identifier (DID) specification that leve
 At its core, `did:ckb` uses CKB's unique Cell model to store DID metadata on the blockchain. Unlike traditional account-based blockchains, CKB uses a UTXO (Unspent Transaction Output) system where data is stored in "Cells" - flexible containers that can hold both value and arbitrary data.
 
 The protocol achieves several key goals:
+
 - **Decentralization**: No central authority controls identity creation or management
 - **Persistence**: Identity data is permanently stored on the blockchain
 - **Verifiability**: All operations are cryptographically verifiable
@@ -109,6 +110,7 @@ To fully grasp `did:ckb`, it's helpful to understand CKB's Cell model:
 ### Cell Basics
 
 A Cell is CKB's fundamental storage unit, containing:
+
 - **Capacity**: Storage space and value (measured in CKBytes)
 - **Data**: Arbitrary content (like DID metadata)
 - **Lock Script**: Controls who can use the Cell
@@ -124,6 +126,7 @@ DID updates work by consuming the old Cell and creating a new one with the same 
 ### Transactions
 
 CKB transactions represent state changes:
+
 - Consume existing Cells as inputs
 - Create new Cells as outputs
 - Scripts validate all operations

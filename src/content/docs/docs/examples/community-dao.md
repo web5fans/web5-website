@@ -1,5 +1,5 @@
 ---
-title: CKB Community DAO 1.1 
+title: CKB Community DAO 1.1
 description: Build a decentralized community DAO with Web5
 ---
 
