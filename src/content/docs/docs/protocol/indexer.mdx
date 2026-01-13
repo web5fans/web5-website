@@ -3,4 +3,12 @@ title: Off-chain Indexer
 description: Guidelines for implementing an off-chain indexer for did:ckb DIDs
 ---
 
+Web5 indexer is an important infrastructure component in the Web5 ecosystem. 
+It listens to the CKB blockchain for `did:ckb` related transactions, fetches the corresponding DID documents, and indexes them for efficient querying.
+Ideally, the indexer is a separate service that can be run by anyone and used by multiple applications.
+
+Right now, we have an open-source indexer implementation: [web5-indexer](https://github.com/web5fans/web5-indexer). 
+It is still in early development and API may change in the future.
+The Documentation for the indexer will be added here once it is more stable.
+
 

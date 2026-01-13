@@ -29,8 +29,8 @@ export default defineConfig({
           label: "Getting Started",
           items: [
             { label: "Introduction", slug: "docs" },
-            { label: "Quick Start", slug: "docs/guides/quickstart" },
             { label: "SDKs and Tools", slug: "docs/guides/sdk-and-tools" },
+            { label: "Resources", slug: "docs/guides/resource" },
           ],
         },
         {
@@ -49,16 +49,16 @@ export default defineConfig({
         {
           label: "API Reference",
           items: [
-            { label: "Lexicon Overview", slug: "docs/reference/api-overview" },
-            { label: "Web5 Lexicon", slug: "docs/reference/web5" },
+            { label: "Lexicon Overview", slug: "docs/reference/lexicon" },
+            { label: "Web5 Lexicon", slug: "docs/reference/web5-lexicon" },
           ],
         },
         {
           label: "Examples",
           items: [
-            { label: "bbs.fans Community", slug: "docs/examples/todo-app" },
-            { label: "CKB Community DAO", slug: "docs/examples/social-network" },
-            { label: "XiangJiang DAO", slug: "docs/examples/file-sharing" },
+            { label: "bbs.fans", slug: "docs/examples/bbs-fans" },
+            { label: "CKB Community DAO", slug: "docs/examples/community-dao" },
+            { label: "XiangJiang DAO", slug: "docs/examples/xiangjian-dao" },
           ],
         },
       ],

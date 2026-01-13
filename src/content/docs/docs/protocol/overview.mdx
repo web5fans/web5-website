@@ -3,3 +3,66 @@ title: Web5 Protocol Overview
 description: An overview of the Web5 protocol components and architecture
 ---
 
+The protocol refers to the [tech stack](/docs/#the-tech-stack) that underpins Web5 applications.
+As nowadays the [web5.fans](https://web5.fans) is still exploring Web5 at an early stage, the protocol is continuously evolving. 
+A lot of components are not stable and subject to change in the full tech stack.
+This page provides a high-level overview of the core components of the Web5 protocol. It might be updated as the protocol evolves.
+
+## Core Components
+
+The web5 protocol consists of two main layers: Web5/3 and Web5/2. The high-level guidance for each layer is [explained here](/docs/#the-idea) and as follows:
+
+**1. Web5/3**
+
+should be open, verifiable, and censorship-resistant systems, such as L1 chains or L2 (rollups, channels) that can provide security and censorship resistance matching L1. 
+
+It trades costs for high security and censorship resistance.
+
+**2. Web5/2**
+
+is not censorship-resistant but can still achieve openness and verifiability. 
+
+Openness means open-source code, migratable private data, accessible and replicable public data.
+
+Verifiability means any node or client can locally verify requests/transactions/data related to itself are correct, such as nostr, atproto, DHT, semi-centralized/permissioned blockchains.
+
+### Web5/3
+
+#### On-chain Identifiers (DIDs)
+
+DID gives users a self-sovereign digital identity that they fully own and control.
+The Web5 expects on-chain DIDs that are compatible with W3C DID standards to be the root of trust for users' identities.
+
+The first on-chain DID method in the Web5 ecosystem is [`did:ckb`](/docs/protocol/did-ckb), which leverages the Nervos CKB blockchain to provide a secure and censorship-resistant identity layer.
+
+With CKB's unique cell model and interoperability from [RGB++ protocol](https://www.rgbppfans.com/), `did:ckb` also enables users to hold their identities from Bitcoin, further enhancing security and decentralization.
+
+#### Assets and Settlement Layer
+
+Web5/3 requires a secure and verifiable assets and settlement layer to support decentralized applications.
+
+One can mint, transfer, exchange and burn digital assets includes [Fungible Token](https://docs.nervos.org/docs/assets-token-standards/xudt) and [Non-Fungible Token](https://docs.nervos.org/docs/assets-token-standards/spore-protocol) on CKB in their Web5 applications. Since CKB has great interoperability with Bitcoin and other blockchains, 
+such assets can also flow across different blockchains securely with the help of RGB++ protocol and bridging solutions.
+
+CKB is general verification layer, it also serves as the settlement layer for Web5 applications, for example, one can build decentralized polling or [voting](https://github.com/web5fans/ckb-dao-vote) components on top of CKB and integrate those components in the web5 applications.
+
+#### Payment Network
+
+[Fiber Network](https://fiber.world/) is a channel network based on CKB.
+It can be used as the payment network to support micro-payments for off-chain, high-throughput usage in the web5 applications.
+
+### Web5/2
+
+#### Personal Data Servers (PDS)
+
+Personal Data Servers (PDS) are off-chain components that allow users to manage their own data and facilitate interactions with on-chain identities. 
+
+It is first introduced by the [AT Protocol](https://atproto.com/) and serves as a pure web 2 architecture. By integrate PDS into the web5 tech stack, users can enjoy a better user experience while still owning their identities and opening possibilities to interact with web5/3 components.
+
+AT Protocol also provides a full design around PDS, making it the ideal component to build complex applications such as social networks in the web5 ecosystem.
+
+#### Nostr Protocol
+
+[Nostr](https://nostr.com/) defines a simple architecture of clients and servers that spread information freely. It is incomplete but more flexible compared to AT Protocol. 
+
+Under some specific scenarios, Nostr is the ideal choices to be used as the off-chain messaging component in Web5 applications. 
