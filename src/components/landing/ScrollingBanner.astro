@@ -1,4 +1,6 @@
 ---
+import IconSmileFace from "../../assets/smile-face.svg";
+
 const items = [
   "Red/Blue?",
   "KNOW WHICH YOU SWALLOWED",
@@ -20,11 +22,7 @@ const items = [
           <>
             {/* Matrix/Code block icon */}
             <div class="w-8 h-8 grid grid-cols-4 gap-0.5">
-              {Array(16)
-                .fill(0)
-                .map(() => (
-                  <div class="w-1.5 h-1.5 bg-web5-dark" />
-                ))}
+              <IconSmileFace />
             </div>
             <span class="text-subheader2 uppercase text-web5-dark">{text}</span>
           </>

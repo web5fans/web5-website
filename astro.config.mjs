@@ -18,10 +18,14 @@ export default defineConfig({
         {
           icon: "github",
           label: "GitHub",
-          href: "https://github.com/TBD54566975/web5-js",
+          href: "https://github.com/web5fans",
         },
-        { icon: "discord", label: "Discord", href: "https://discord.gg/tbd" },
-        { icon: "x.com", label: "X", href: "https://twitter.com/TBD54566975" },
+        {
+          icon: "discord",
+          label: "Discord",
+          href: "https://discord.gg/BPREZqjpUr",
+        },
+        { icon: "x.com", label: "X", href: "https://x.com/CKBEcoFund" },
       ],
       customCss: ["./src/styles/global.css", "./src/styles/starlight.css"],
       sidebar: [
@@ -66,9 +70,7 @@ export default defineConfig({
           ],
         },
       ],
-      components: {
-        //Header: './src/components/landing/Header.astro',
-      },
+      components: {},
     }),
   ],
 
