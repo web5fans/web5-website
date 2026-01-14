@@ -1,37 +1,41 @@
 ---
 const resources = [
   {
-    title: 'TECH STACK',
-    desc: 'A modular Web5 foundation built on DID:CKB, Fiber, and ATProto—unlocking decentralized identity, data, and social protocols.',
-    link: '/docs/tech-stack'
+    title: "TECH STACK",
+    desc: "A modular Web5 foundation built on DID:CKB, Fiber, and ATProto—unlocking decentralized identity, data, and social protocols.",
+    link: "/docs#the-tech-stack",
   },
   {
-    title: 'OFFICIAL DOC',
-    desc: 'Documentation for the Web5 ecosystem, explaining core protocols, architecture, and how everything fits together.',
-    link: '/docs'
+    title: "OFFICIAL DOC",
+    desc: "Documentation for the Web5 ecosystem, explaining core protocols, architecture, and how everything fits together.",
+    link: "/docs",
   },
   {
-    title: 'SHOWCASE',
-    desc: 'A collection of Web5 projects and proposals that highlight real use cases, standards, and open development in the ecosystem.',
-    link: '/showcase'
+    title: "SHOWCASE",
+    desc: "A collection of Web5 projects and proposals that highlight real use cases, standards, and open development in the ecosystem.",
+    link: "/docs/examples/bbs-fans/",
   },
   {
-    title: 'BLOG',
-    desc: 'Ongoing technical updates, experiments, and insights from building Web5 tools, libraries, and protocols in the open.',
-    link: '/blog'
-  }
+    title: "DEVLOG",
+    desc: "Ongoing technical updates, experiments, and insights from building Web5 tools, libraries, and protocols in the open.",
+    link: "https://github.com/web5fans",
+  },
 ];
 ---
-<!-- Additional Resources -->
-  <div class="w-full border-t">
-    <!-- Green Header -->
-    <div class="w-full bg-web5-green p-12 lg:p-16 flex items-center justify-center">
-      <h2 class="text-h3 text-web5-dark">ADDITIONAL RESOURCES</h2>
-    </div>
 
-    <!-- Resource Cards Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-      {resources.map(resource => (
+<!-- Additional Resources -->
+<div class="w-full border-t">
+  <!-- Green Header -->
+  <div
+    class="w-full bg-web5-green p-12 lg:p-16 flex items-center justify-center"
+  >
+    <h2 class="text-h3 text-web5-dark">ADDITIONAL RESOURCES</h2>
+  </div>
+
+  <!-- Resource Cards Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+    {
+      resources.map((resource) => (
         <div class="p-8 lg:p-12 flex flex-col justify-between border-r border-b min-h-[400px]">
           <div>
             <h3 class="text-h4 text-web5-dark mb-6">{resource.title}</h3>
@@ -39,10 +43,15 @@ const resources = [
               {resource.desc}
             </p>
           </div>
-          <a target="_blank" href={resource.link} class="border-2 border-web5-dark px-8 py-3 text-button1 text-web5-dark hover:bg-web5-dark hover:text-web5-beige transition-colors w-fit">
+          <a
+            target="_blank"
+            href={resource.link}
+            class="border-2 border-web5-dark px-8 py-3 text-button1 text-web5-dark hover:bg-web5-dark hover:text-web5-beige transition-colors w-fit"
+          >
             Explore
           </a>
         </div>
-      ))}
-    </div>
+      ))
+    }
   </div>
+</div>

@@ -1,0 +1,143 @@
+---
+title: did:ckb
+description: Understanding the did:ckb method for decentralized identities on CKB
+---
+
+The `did:ckb` method is a Decentralized Identifier (DID) specification that leverages the CKB blockchain to create, manage, and resolve DIDs.
+It provides a decentralized way to establish digital identities with strong security guarantees.
+
+At its core, `did:ckb` uses CKB's unique Cell model to store DID metadata on the blockchain. Unlike traditional account-based blockchains, CKB uses a UTXO (Unspent Transaction Output) system where data is stored in "Cells" - flexible containers that can hold both value and arbitrary data.
+
+The `did:ckb` achieves several key goals:
+
+- **Decentralization**: No central authority controls identity creation or management
+- **Persistence**: Identity data is permanently stored on the blockchain
+- **Verifiability**: All operations are cryptographically verifiable
+- **Interoperability**: Compatible with W3C DID standards
+
+The formal specification for `did:ckb` can be found in the [wip-01](https://github.com/web5fans/web5-wips/blob/master/01.md).
+
+A mainnet-live implementation is available at the [did-ckb-contract](https://github.com/web5fans/did-ckb).
+
+## How DIDs are Created
+
+A `did:ckb` identifier looks like this: `did:ckb:qq2m72a2vas4e5ovcpxoedscguuu4nba`
+
+The identifier is generated through a deterministic process that ensures uniqueness:
+
+1. A transaction is created that includes a special "DID Metadata Cell"
+2. The cell contains the identity information and rules for future updates
+3. A unique identifier is derived from transaction details using cryptographic hashing and [type-id](https://docs.nervos.org/docs/script/type-id)
+4. The result is encoded in base32 format
+
+This process guarantees that each DID is unique and tied to a specific blockchain transaction.
+
+## Core Operations
+
+### Creating a DID
+
+To create a new `did:ckb` identity:
+
+1. Define your identity metadata (verification methods, services, aliases)
+2. Set up authorization rules (who can update this DID)
+3. Create a CKB transaction that stores this data in a new Cell
+4. Submit the transaction to the network
+
+The DID becomes active once the transaction is confirmed on the blockchain.
+
+### Resolving a DID
+
+When someone wants to verify or use your DID:
+
+1. The resolver extracts the identifier from the DID string
+2. Searches the blockchain for the corresponding DID Metadata Cell
+3. Retrieves the stored identity information
+4. Converts it to standard DID Document format
+
+Since the `did:ckb` is type-id based, it has unique identifiers tied to specific blockchain transactions hence no duplicates.
+
+### Updating a DID
+
+To modify your identity information:
+
+1. Create a new transaction that consumes the current DID Cell
+2. Generate a new Cell with updated metadata
+3. Authorize the transaction using the current ownership rules
+4. Submit to the network
+
+The update maintains the same DID identifier while changing the underlying data.
+
+### Deactivating a DID
+
+To permanently disable a DID:
+
+1. Create a transaction that consumes the DID Cell without creating a replacement
+2. Authorize using current ownership rules
+3. Submit to the network
+
+**Warning**: Deactivation is irreversible. Once a DID is deactivated, it cannot be reactivated.
+
+## Protecting Against Attacks
+
+- **Double-spending**: Prevented by CKB's UTXO model and POW consensus
+- **Key compromise**: Mitigated through multi-signature and quantum-resistant options
+- **Front-running**: Impossible due to identifier generation from transaction inputs
+- **Denial of service**: Economic protections via transaction fees
+
+## Privacy Features
+
+`did:ckb` provides privacy through:
+
+- **Pseudonymous identifiers**: DIDs don't reveal personal information
+- **Selective disclosure**: Users control what information to share
+- **Multiple identities**: Users can maintain separate DIDs for different contexts
+
+### Privacy Considerations
+
+- **Correlation risks**: Transaction patterns might link different uses of the same DID
+- **Metadata leakage**: Transaction details could reveal information
+
+Users should use separate DIDs for different purposes and consider privacy-enhancing techniques like transaction mixing.
+
+## Understanding CKB Cells
+
+To fully grasp `did:ckb`, it's helpful to understand CKB's Cell model:
+
+### Cell Basics
+
+A Cell is CKB's fundamental storage unit, containing:
+
+- **Capacity**: Storage space and value (measured in CKBytes)
+- **Data**: Arbitrary content (like DID metadata)
+- **Lock Script**: Controls who can use the Cell
+- **Type Script**: Defines how the Cell can be modified
+
+### Live vs Dead Cells
+
+- **Live Cells**: Available for use in new transactions
+- **Dead Cells**: Already consumed and cannot be reused
+
+DID updates work by consuming the old Cell and creating a new one with the same identifier.
+
+### Transactions
+
+CKB transactions represent state changes:
+
+- Consume existing Cells as inputs
+- Create new Cells as outputs
+- Scripts validate all operations
+
+This model ensures that DID operations are atomic and verifiable.
+
+## Integration with Web5
+
+`did:ckb` is designed to work seamlessly with the broader Web5 ecosystem, providing a blockchain-based identity layer that complements other off-chain components.
+
+The protocol's compatibility with `did:plc` metadata format means it can leverage existing tooling and libraries for DID document generation and verification.
+
+## References
+
+- [W3C DID Specification](https://www.w3.org/TR/did-1.0/)
+- [Nervos CKB Documentation](https://docs.nervos.org/)
+- [did:plc Specification](https://web.plc.directory/spec/v0.1/did-plc)
+- [BLAKE2 Cryptographic Hash](https://www.rfc-editor.org/rfc/rfc7693)

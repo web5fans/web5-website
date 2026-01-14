@@ -2,42 +2,42 @@
 
 /* Override Starlight CSS variables */
 :root {
-  --sl-color-accent: #2C4EED;
-  --sl-color-accent-high: #1A1A1A;
-  --sl-color-white: #F8F1E7;
-  --sl-color-gray-1: #F8F1E7;
-  --sl-color-gray-2: #E8E1D7;
-  --sl-color-gray-3: #D8D1C7;
-  --sl-color-gray-4: #C8C1B7;
+  --sl-color-accent: #2c4eed;
+  --sl-color-accent-high: #1a1a1a;
+  --sl-color-white: #f8f1e7;
+  --sl-color-gray-1: #f8f1e7;
+  --sl-color-gray-2: #e8e1d7;
+  --sl-color-gray-3: #d8d1c7;
+  --sl-color-gray-4: #c8c1b7;
   --sl-color-gray-5: #444141;
-  --sl-color-gray-6: #1A1A1A;
-  --sl-color-black: #1A1A1A;
-  --sl-color-bg: #F8F1E7;
-  --sl-color-bg-nav: #F8F1E7;
-  --sl-color-bg-sidebar: #E8E1D7;
-  --sl-color-text: #1A1A1A;
-  --sl-color-text-accent: #2C4EED;
-  --sl-font: 'Tomorrow', sans-serif;
-  --sl-font-system: 'Tomorrow', sans-serif;
+  --sl-color-gray-6: #1a1a1a;
+  --sl-color-black: #1a1a1a;
+  --sl-color-bg: #f8f1e7;
+  --sl-color-bg-nav: #f8f1e7;
+  --sl-color-bg-sidebar: #e8e1d7;
+  --sl-color-text: #1a1a1a;
+  --sl-color-text-accent: #2c4eed;
+  --sl-font: "Tomorrow", sans-serif;
+  --sl-font-system: "Tomorrow", sans-serif;
 }
 
 /* Body and page background */
 body {
-  background-color: #F8F1E7;
-  font-family: 'Tomorrow', sans-serif;
+  background-color: #f8f1e7;
+  font-family: "Tomorrow", sans-serif;
 }
 
 /* Starlight header styling - use more specific selectors */
 header,
 .header,
 [class*="header"] {
-  background-color: #F8F1E7 !important;
+  background-color: #f8f1e7 !important;
 }
 
 header *,
 .header *,
 [class*="header"] * {
-  color: #1A1A1A !important;
+  color: #1a1a1a !important;
   text-decoration: none !important;
 }
 
@@ -50,7 +50,7 @@ header a,
 header a:hover,
 .header a:hover,
 [class*="header"] a:hover {
-  color: #2C4EED !important;
+  color: #2c4eed !important;
   text-decoration: none !important;
 }
 
@@ -58,8 +58,8 @@ header a:hover,
 .site-title,
 [class*="site-title"],
 .sl-nav a {
-  color: #1A1A1A !important;
-  font-family: 'Tomorrow', sans-serif !important;
+  color: #1a1a1a !important;
+  font-family: "Tomorrow", sans-serif !important;
   text-decoration: none !important;
 }
 
@@ -70,59 +70,59 @@ site-search {
 }
 
 site-search input {
-  background-color: #F8F1E7 !important;
-  color: #1A1A1A !important;
-  border: 1px solid #1A1A1A !important;
+  background-color: #f8f1e7 !important;
+  color: #1a1a1a !important;
+  border: 1px solid #1a1a1a !important;
   border-radius: 0 !important;
   padding: 0.5rem 1rem !important;
 }
 
 site-search button {
-  background-color: #F8F1E7 !important;
-  border: 1px solid #1A1A1A !important;
+  background-color: #f8f1e7 !important;
+  border: 1px solid #1a1a1a !important;
   border-radius: 0 !important;
   padding: 0.5rem 1rem !important;
-  color: #1A1A1A !important;
+  color: #1a1a1a !important;
 }
 
 site-search button > kbd {
-  background-color: #F8F1E7 !important;
-  color: #1A1A1A !important;
-  border: 1px solid #1A1A1A !important;
+  background-color: #f8f1e7 !important;
+  color: #1a1a1a !important;
+  border: 1px solid #1a1a1a !important;
   padding: 2px 6px !important;
   font-size: 13px !important;
 }
 
 site-search svg {
-  color: #1A1A1A !important;
-  fill: #1A1A1A !important;
+  color: #1a1a1a !important;
+  fill: #1a1a1a !important;
 }
 
 /* Search dialog */
 .search-dialog,
 [class*="search"] {
-  background-color: #F8F1E7 !important;
-  color: #1A1A1A !important;
+  background-color: #f8f1e7 !important;
+  color: #1a1a1a !important;
 }
 
 .search-dialog *,
 [class*="search"] * {
-  color: #1A1A1A !important;
+  color: #1a1a1a !important;
 }
 
 /* Dialog frame (search modal) - ensure light theme */
 .dialog-frame,
 .dialog-frame * {
-  background-color: #F8F1E7 !important;
-  color: #1A1A1A !important;
+  background-color: #f8f1e7 !important;
+  color: #1a1a1a !important;
 }
 
 /* Cancel / close button in dialog */
 .dialog-frame button[data-close-modal],
 .dialog-frame button {
-  background-color: #F8F1E7 !important;
-  color: #1A1A1A !important;
-  border: 1px solid #1A1A1A !important;
+  background-color: #f8f1e7 !important;
+  color: #1a1a1a !important;
+  border: 1px solid #1a1a1a !important;
   padding: 0.5rem 1rem !important;
 }
 
@@ -130,7 +130,7 @@ site-search svg {
 .dialog-frame > div,
 .dialog-frame > div * {
   background-color: transparent !important;
-  color: #1A1A1A !important;
+  color: #1a1a1a !important;
 }
 
 /* Hide theme selector only */
@@ -147,17 +147,17 @@ starlight-theme-select,
 }
 
 .social-icons a {
-  color: #1A1A1A !important;
+  color: #1a1a1a !important;
   text-decoration: none !important;
 }
 
 .social-icons a:hover {
-  color: #2C4EED !important;
+  color: #2c4eed !important;
 }
 
 /* Main page wrapper with centered max-width */
 .page {
-  background-color: #F8F1E7;
+  background-color: #f8f1e7;
   max-width: 1440px;
   margin: 0 auto;
   position: relative;
@@ -165,35 +165,35 @@ starlight-theme-select,
 
 /* Main frame inner wrapper with beige background */
 .page > * {
-  background-color: #F8F1E7;
+  background-color: #f8f1e7;
 }
 
 /* Remove floating vertical border lines in docs - they interfere with Starlight layout */
 
 /* Sidebar */
 .sidebar {
-  background-color: #E8E1D7;
-  border-right: 1px solid #1A1A1A;
+  background-color: #e8e1d7;
+  border-right: 1px solid #1a1a1a;
 }
 
 .sidebar * {
-  color: #1A1A1A;
+  color: #1a1a1a;
 }
 
 .sidebar nav a {
-  color: #1A1A1A;
-  font-family: 'Tomorrow', sans-serif;
+  color: #1a1a1a;
+  font-family: "Tomorrow", sans-serif;
   font-weight: 500;
   font-size: 14px;
   text-decoration: none;
 }
 
 .sidebar nav a:hover {
-  color: #2C4EED;
+  color: #2c4eed;
 }
 
-.sidebar nav a[aria-current='page'] {
-  color: #2C4EED;
+.sidebar nav a[aria-current="page"] {
+  color: #2c4eed;
   font-weight: 600;
 }
 
@@ -201,18 +201,18 @@ starlight-theme-select,
 .sidebar h2,
 .sidebar h3,
 .sidebar span {
-  color: #1A1A1A !important;
+  color: #1a1a1a !important;
 }
 
 /* Main content */
 .main-frame {
-  background-color: #F8F1E7;
+  background-color: #f8f1e7;
 }
 
 /* Content typography */
 .sl-markdown-content {
-  font-family: 'Tomorrow', sans-serif;
-  color: #1A1A1A;
+  font-family: "Tomorrow", sans-serif;
+  color: #1a1a1a;
 }
 
 .sl-markdown-content h1,
@@ -221,20 +221,20 @@ starlight-theme-select,
 .sl-markdown-content h4,
 .sl-markdown-content h5,
 .sl-markdown-content h6 {
-  font-family: 'Tomorrow', sans-serif;
-  color: #1A1A1A !important;
+  font-family: "Tomorrow", sans-serif;
+  color: #1a1a1a !important;
   font-weight: 600;
   text-transform: uppercase;
 }
 
 .sl-markdown-content h1:first-child {
-  color: #1A1A1A !important;
+  color: #1a1a1a !important;
   background-color: transparent !important;
 }
 
 /* Page title */
 h1[id="_top"] {
-  color: #1A1A1A !important;
+  color: #1a1a1a !important;
   background-color: transparent !important;
 }
 
@@ -266,15 +266,46 @@ h1[id="_top"] {
 
 .sl-markdown-content p,
 .sl-markdown-content li {
-  font-family: 'Tomorrow', sans-serif;
+  font-family: "Tomorrow", sans-serif;
   font-weight: 400;
   font-size: 14px;
   line-height: 1.6em;
-  color: #1A1A1A;
+  color: #1a1a1a;
+}
+
+/* List styling - Add bullet points and numbers */
+.sl-markdown-content ul {
+  list-style-type: disc;
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+  padding-left: 0.5rem;
+}
+
+.sl-markdown-content ol {
+  list-style-type: decimal;
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+  padding-left: 0.5rem;
+}
+
+.sl-markdown-content li {
+  margin-bottom: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+.sl-markdown-content ul ul,
+.sl-markdown-content ol ul {
+  list-style-type: circle;
+  margin-top: 0.5rem;
+}
+
+.sl-markdown-content ul ul ul,
+.sl-markdown-content ol ul ul {
+  list-style-type: square;
 }
 
 .sl-markdown-content a {
-  color: #2C4EED;
+  color: #2c4eed;
   text-decoration: underline;
   text-decoration-thickness: 2px;
   text-underline-offset: 4px;
@@ -287,8 +318,8 @@ h1[id="_top"] {
 
 /* Code blocks */
 .sl-markdown-content pre {
-  background-color: #E8E1D7;
-  border: 2px solid #1A1A1A;
+  background-color: #e8e1d7;
+  border: 2px solid #1a1a1a;
   border-radius: 0;
   padding: 1.5rem;
   margin: 1.5rem 0;
@@ -296,52 +327,51 @@ h1[id="_top"] {
 }
 
 .sl-markdown-content code {
-  
 }
 
 .sl-markdown-content pre code {
-  color: #1A1A1A;
+  color: #1a1a1a;
 }
 
 .sl-markdown-content :not(pre) > code {
-  background-color: #E8E1D7;
-  color: #1A1A1A;
+  background-color: #e8e1d7;
+  color: #1a1a1a;
   padding: 2px 6px;
   border-radius: 0;
   font-size: 13px;
 }
 
-.link-title{
+.link-title {
   color: black;
 }
 
 /* Right sidebar / TOC */
 .right-sidebar {
-  background-color: #F8F1E7;
-  border-left: 1px solid #1A1A1A;
+  background-color: #f8f1e7;
+  border-left: 1px solid #1a1a1a;
 }
 
 .right-sidebar h2 {
-  font-family: 'Tomorrow', sans-serif;
+  font-family: "Tomorrow", sans-serif;
   font-weight: 600;
   font-size: 14px;
   text-transform: uppercase;
-  color: #1A1A1A;
+  color: #1a1a1a;
 }
 
 .right-sidebar a {
-  font-family: 'Tomorrow', sans-serif;
+  font-family: "Tomorrow", sans-serif;
   font-size: 13px;
   color: #444141;
   text-decoration: none;
 }
 
 .right-sidebar a:hover {
-  color: #2C4EED;
+  color: #2c4eed;
 }
 
-.pagination-links > a > span{
-  color: #1A1A1A !important;
+.pagination-links > a > span {
+  color: #1a1a1a !important;
 }
 
 /* Mobile responsive */
@@ -349,18 +379,18 @@ h1[id="_top"] {
   .sl-markdown-content h1 {
     font-size: 40px;
   }
-  
+
   .sl-markdown-content h2 {
     font-size: 24px;
   }
-  
+
   .sl-markdown-content h3 {
     font-size: 16px;
   }
 }
 
 mobile-starlight-toc > nav > details > summary > :first-child {
-  background-color: #F8F1E7;
+  background-color: #f8f1e7;
 }
 
 mobile-starlight-toc > nav > details > summary > .display-current {
