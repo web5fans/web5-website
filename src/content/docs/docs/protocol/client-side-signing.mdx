@@ -2,10 +2,6 @@
 title: Client-Side Signing and Key Migration
 ---
 
-This document outlines methods for performing cryptographic signing operations directly on the client side rather than delegating this responsibility to the Personal Data Server (PDS). It specifies two approaches for managing signing keys on the client: (1) deterministic key generation using RFC6979, and (2) random key generation with import/export capabilities for multi-device usage.
-
-## 1. Introduction
-
 Currently, many decentralized identity approaches delegate signing operations to the PDS, where the private keys are stored and managed. This architecture has several limitations:
 
 - Reduced client autonomy and control over signing operations
@@ -14,11 +10,13 @@ Currently, many decentralized identity approaches delegate signing operations to
 - Potential privacy concerns as the PDS can track all signature operations
 - Challenges with key portability across different PDS providers
 
+This page outlines methods for performing cryptographic signing operations directly on the client side rather than delegating this responsibility to the Personal Data Server (PDS).
+It specifies two approaches for managing signing keys on the client: (1) deterministic key generation using RFC6979, and (2) random key generation with import/export capabilities for multi-device usage.
 By enabling client-side signing, we can enhance security, privacy, and user sovereignty while maintaining a seamless multi-device experience.
 
-## Specification
+A formal specification for client-side signing can be found in the [wip-05](https://github.com/web5fans/web5-wips/blob/master/05.md).
 
-### Client-Side Signing Architecture
+## Client-Side Signing Architecture
 
 This proposal introduces a shift from PDS-delegated signing to client-side signing where:
 
@@ -27,11 +25,11 @@ This proposal introduces a shift from PDS-delegated signing to client-side signi
 3. Signed data is then sent to the PDS for distribution in the network
 4. Authentication with the PDS uses a separate mechanism than the main identity signing keys
 
-### Method 1: Wallet-Based Deterministic Signing
+## Method 1: Wallet-Based Deterministic Signing
 
 This method leverages existing wallet infrastructure to perform deterministic signing operations without exposing private keys.
 
-#### Integration Process
+### Integration Process
 
 1. User authorizes the application to connect with their wallet
 2. Application requests specific signing capabilities through the wallet's permission system
@@ -86,7 +84,7 @@ This method leverages existing wallet infrastructure to perform deterministic si
 
 4. To rotate keys, the application can request the wallet to generate a new key pair using the same derivation path but with a new index.
 
-#### Security Benefits
+### Security Benefits
 
 With this approach:
 
@@ -96,7 +94,7 @@ With this approach:
 - Consistent signatures can be produced across devices using the same wallet recovery phrase
 - Applications cannot extract or misuse private key material
 
-#### Multi-Device Support
+### Multi-Device Support
 
 Multi-device support is achieved through wallet recovery mechanisms:
 
@@ -104,7 +102,7 @@ Multi-device support is achieved through wallet recovery mechanisms:
 - The same wallet can be restored on multiple devices
 - Signing operations produce identical results across all devices
 
-#### Wallet Compatibility Requirements
+### Wallet Compatibility Requirements
 
 For this approach to work seamlessly:
 
@@ -113,11 +111,11 @@ For this approach to work seamlessly:
 - Applications should verify wallet compatibility before attempting operations
 - Wallets should provide testing capabilities to verify correct signature generation
 
-### Method 2: Random Key Generation with Import/Export
+## Method 2: Random Key Generation with Import/Export
 
 This approach generates random keys and provides functionality to securely export and import them across devices.
 
-#### Key Generation Process
+### Key Generation Process
 
 1. Generate a random private key using a cryptographically secure random number generator:
    ```
@@ -129,7 +127,7 @@ This approach generates random keys and provides functionality to securely expor
    ```
 3. Store the private key securely on the device
 
-#### Key Export/Import
+### Key Export/Import
 
 1. Encrypt the private key with a user-provided password:
    ```
@@ -149,7 +147,7 @@ This approach generates random keys and provides functionality to securely expor
 
 ## Integration with Web5 Infrastructure
 
-### PDS Interface Changes
+## PDS Interface Changes
 
 The PDS API would need to be extended to:
 

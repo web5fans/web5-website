@@ -36,7 +36,7 @@ All new schemas are published and MUST be resolved under the NSID authority `fan
 | `indexQuery.json`       | cheap read-only helpers (counters, DID lookups, …)                | query     |
 | `defs.json`             | shared shapes (`signedRoot`, etc.)                                | —         |
 
-Machine-readable schemas live in [`assets/lexicon/ckb/`](assets/lexicon/ckb). Human-readable examples and sequence diagrams will be added in a future revision.
+Machine-readable schemas live in WIPs's [`assets/lexicon/ckb/`](https://github.com/web5fans/web5-wips/pull/10/changes#diff-90a05206dc5d914bcb1c3c10231edc15346e634d504be08c1dbd9353ee4c0e6c). Human-readable examples and sequence diagrams will be added in a future revision.
 
 ## CKB-Specific Fields
 

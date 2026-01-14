@@ -43,6 +43,10 @@ export default defineConfig({
               label: "Signing Key Migration",
               slug: "docs/protocol/client-side-signing",
             },
+            {
+              label: "Nostr Integration",
+              slug: "docs/protocol/nostr-integration",
+            },
             { label: "Off-chain Indexer", slug: "docs/protocol/indexer" },
           ],
         },

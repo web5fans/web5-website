@@ -1,18 +1,23 @@
 ---
 title: did:ckb
-description: Understanding the did:ckb method for decentralized identities on Nervos CKB
+description: Understanding the did:ckb method for decentralized identities on CKB
 ---
 
-The `did:ckb` method is a Decentralized Identifier (DID) specification that leverages the Nervos CKB blockchain to create, manage, and resolve DIDs. This protocol provides a decentralized way to establish digital identities with strong security guarantees through blockchain technology.
+The `did:ckb` method is a Decentralized Identifier (DID) specification that leverages the CKB blockchain to create, manage, and resolve DIDs.
+It provides a decentralized way to establish digital identities with strong security guarantees.
 
 At its core, `did:ckb` uses CKB's unique Cell model to store DID metadata on the blockchain. Unlike traditional account-based blockchains, CKB uses a UTXO (Unspent Transaction Output) system where data is stored in "Cells" - flexible containers that can hold both value and arbitrary data.
 
-The protocol achieves several key goals:
+The `did:ckb` achieves several key goals:
 
 - **Decentralization**: No central authority controls identity creation or management
 - **Persistence**: Identity data is permanently stored on the blockchain
 - **Verifiability**: All operations are cryptographically verifiable
 - **Interoperability**: Compatible with W3C DID standards
+
+The formal specification for `did:ckb` can be found in the [wip-01](https://github.com/web5fans/web5-wips/blob/master/01.md).
+
+A mainnet-live implementation is available at the [did-ckb-contract](https://github.com/web5fans/did-ckb).
 
 ## How DIDs are Created
 
@@ -22,7 +27,7 @@ The identifier is generated through a deterministic process that ensures uniquen
 
 1. A transaction is created that includes a special "DID Metadata Cell"
 2. The cell contains the identity information and rules for future updates
-3. A unique identifier is derived from transaction details using cryptographic hashing
+3. A unique identifier is derived from transaction details using cryptographic hashing and [type-id](https://docs.nervos.org/docs/script/type-id)
 4. The result is encoded in base32 format
 
 This process guarantees that each DID is unique and tied to a specific blockchain transaction.
@@ -49,7 +54,7 @@ When someone wants to verify or use your DID:
 3. Retrieves the stored identity information
 4. Converts it to standard DID Document format
 
-If multiple cells exist for the same DID (due to conflicts), the protocol uses rules to determine which one is authoritative - typically the earliest created cell.
+Since the `did:ckb` is type-id based, it has unique identifiers tied to specific blockchain transactions hence no duplicates.
 
 ### Updating a DID
 
@@ -72,18 +77,9 @@ To permanently disable a DID:
 
 **Warning**: Deactivation is irreversible. Once a DID is deactivated, it cannot be reactivated.
 
-## Security Model
+## Protecting Against Attacks
 
-The `did:ckb` protocol provides robust security through:
-
-- **Blockchain Consensus**: CKB's Byzantine fault-tolerant consensus prevents unauthorized modifications
-- **Cryptographic Verification**: All operations use proven cryptographic primitives
-- **Authorization Scripts**: Flexible ownership models support various authentication schemes
-- **Immutability**: Once created, transaction history cannot be altered
-
-### Protecting Against Attacks
-
-- **Double-spending**: Prevented by CKB's UTXO model and consensus
+- **Double-spending**: Prevented by CKB's UTXO model and POW consensus
 - **Key compromise**: Mitigated through multi-signature and quantum-resistant options
 - **Front-running**: Impossible due to identifier generation from transaction inputs
 - **Denial of service**: Economic protections via transaction fees

@@ -1,0 +1,36 @@
+---
+title: Nostr Integration
+description: Guidelines for integrating Nostr protocol with Web5 applications
+---
+
+[Nostr](https://nostr.com/) is a decentralized protocol for social networking that uses public-key cryptography for identity and message signing.
+Integrating Nostr with Web5 applications allows users to leverage their `did:ckb` identities for secure and verifiable interactions on Nostr-based platforms.
+
+[WIP-04](https://github.com/web5fans/web5-wips/blob/master/04.md) defines a method for storing Nostr public keys and relays in the `did:ckb` identities while maintaining the compatibility for AT Protocol and W3C DID standards.
+
+A `did:ckb` Metadata example with both AT Protocol and Nostr information:
+
+```json
+{
+  "verificationMethods": {
+    "atproto": "did:key:zSigningKey",
+    "nostr": "ce6232feaec4e6d01a4e00daa3648030c42017bdf589e34b53744fc49c5cba8a"
+  },
+  "alsoKnownAs": ["at://alice.test", "nostr://alice@example.com"],
+  "services": {
+    "atproto_pds": {
+      "type": "AtprotoPersonalDataServer",
+      "endpoint": "<https://example.test>"
+    },
+    "nostr_relay": {
+      "type": "NostrRelay",
+      "endpoint": "wss://relay.damus.io,wss://nostr.fmt.wiz.biz,wss://relay.nostr.band"
+    }
+  }
+}
+```
+
+To integrate `did:ckb` in Nostr clients, one can resolve the Nostr public key and relay information from the DID Document associated with the user's `did:ckb` identifier.
+After the resolve, one can use them for authentication and messaging on Nostr networks, just like the traditional workflows in building Nostr applications.
+
+Note that in this way, Nostr users don't need to leveraging relay discover techniques like outbox model and [NIP-65](https://github.com/nostr-protocol/nips/blob/master/65.md).
