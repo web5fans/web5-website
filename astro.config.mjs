@@ -66,7 +66,7 @@ export default defineConfig({
           items: [
             { label: "bbs.fans", slug: "docs/examples/bbs-fans" },
             { label: "CKB Community DAO", slug: "docs/examples/community-dao" },
-            { label: "XiangJiang DAO", slug: "docs/examples/xiangjian-dao" },
+            { label: "XiangJian DAO", slug: "docs/examples/xiangjian-dao" },
           ],
         },
       ],
