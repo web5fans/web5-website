@@ -2,23 +2,21 @@
 import Web5Logo from "../../assets/web5-logo.svg";
 import IconMenu from "../../assets/icon-menu.svg";
 import IconX from "../../assets/icon-x.svg";
-
 ---
 
 <header class="w-full border-b border-web5-dark top-0 z-50">
   <!-- Header with side borders -->
   <div class="flex items-stretch h-[64px] md:h-[120px] md:px-5 relative">
     <!-- Left vertical border line -->
-    <div class="absolute top-0 bottom-0 left-0 md:left-5 w-px bg-web5-dark"></div>
+    <div class="absolute top-0 bottom-0 left-0 md:left-5 w-px bg-web5-dark">
+    </div>
     <!-- Right vertical border line -->
-    <div class="absolute top-0 bottom-0 right-0 md:right-5 w-px bg-web5-dark"></div>
+    <div class="absolute top-0 bottom-0 right-0 md:right-5 w-px bg-web5-dark">
+    </div>
 
     <!-- Left: Logo - takes remaining space -->
     <div class="flex-1 flex items-center px-3 md:px-5">
-      <a
-        href="/"
-        class="hover:opacity-80 transition-opacity"
-      >
+      <a href="/" class="hover:opacity-80 transition-opacity">
         <Web5Logo class="h-[48px] w-auto md:h-[100px]" aria-label="Web5 fans" />
       </a>
     </div>
@@ -35,7 +33,9 @@ import IconX from "../../assets/icon-x.svg";
       </a>
     </div>
 
-    <div class="hidden md:flex w-[350px] items-center justify-center bg-web5-dark">
+    <div
+      class="hidden md:flex w-[350px] items-center justify-center bg-web5-dark"
+    >
       <a
         href="https://github.com/web5fans"
         class="text-button2 text-web5-beige hover:opacity-80 transition-opacity"
@@ -45,7 +45,9 @@ import IconX from "../../assets/icon-x.svg";
     </div>
 
     <!-- Mobile menu toggle -->
-    <div class="md:hidden w-[72px] flex items-center justify-center border-l border-web5-dark">
+    <div
+      class="md:hidden w-[72px] flex items-center justify-center border-l border-web5-dark"
+    >
       <button
         id="mobileMenuToggle"
         type="button"
@@ -60,8 +62,14 @@ import IconX from "../../assets/icon-x.svg";
     </div>
   </div>
 
-  <nav id="mobileNav" class="md:hidden hidden border-t border-web5-dark bg-web5-beige">
-    <a href="/docs" class="block px-4 py-4 text-button2 text-web5-dark border-b border-web5-dark">
+  <nav
+    id="mobileNav"
+    class="md:hidden hidden border-t border-web5-dark bg-web5-beige"
+  >
+    <a
+      href="/docs"
+      class="block px-4 py-4 text-button2 text-web5-dark border-b border-web5-dark"
+    >
       Web5 resources
     </a>
     <a
