@@ -10,8 +10,8 @@ export default defineConfig({
     starlight({
       title: "WEB5 DOCS",
       logo: {
-        light: "./src/assets/web5-logo-light.svg",
-        dark: "./src/assets/web5-logo-dark.svg",
+        light: "./src/assets/web5-logo.svg",
+        dark: "./src/assets/web5-logo.svg",
         replacesTitle: true,
       },
       social: [

@@ -1,39 +1,41 @@
 ---
+import Web5Logo from "../../assets/web5-logo.svg";
+import IconMenu from "../../assets/icon-menu.svg";
+import IconX from "../../assets/icon-x.svg";
 
 ---
 
 <header class="w-full border-b border-web5-dark top-0 z-50">
   <!-- Header with side borders -->
-  <div class="flex items-stretch h-[120px] px-5 relative">
+  <div class="flex items-stretch h-[64px] md:h-[120px] md:px-5 relative">
     <!-- Left vertical border line -->
-    <div class="absolute top-0 bottom-0 left-5 w-px bg-web5-dark"></div>
+    <div class="absolute top-0 bottom-0 left-0 md:left-5 w-px bg-web5-dark"></div>
     <!-- Right vertical border line -->
-    <div class="absolute top-0 bottom-0 right-5 w-px bg-web5-dark"></div>
+    <div class="absolute top-0 bottom-0 right-0 md:right-5 w-px bg-web5-dark"></div>
 
     <!-- Left: Logo - takes remaining space -->
-    <div class="flex-1 flex items-center px-5">
+    <div class="flex-1 flex items-center px-3 md:px-5">
       <a
         href="/"
-        class="text-logo text-web5-dark hover:opacity-80 transition-opacity"
+        class="hover:opacity-80 transition-opacity"
       >
-        WEB5
+        <Web5Logo class="h-[48px] w-auto md:h-[100px]" aria-label="Web5 fans" />
       </a>
     </div>
 
-    <!-- Center: Navigation Link -->
+    <!-- Desktop navigation -->
     <div
-      class="w-[350px] flex items-center justify-center border-l border-web5-dark"
+      class="hidden md:flex w-[350px] items-center justify-center border-l border-web5-dark"
     >
       <a
         href="/docs"
         class="text-button2 text-web5-dark hover:underline decoration-2 underline-offset-4"
       >
-        Documentation
+        Web5 resources
       </a>
     </div>
 
-    <!-- Right: CTA Button - black background -->
-    <div class="w-[350px] flex items-center justify-center bg-web5-dark">
+    <div class="hidden md:flex w-[350px] items-center justify-center bg-web5-dark">
       <a
         href="https://github.com/web5fans"
         class="text-button2 text-web5-beige hover:opacity-80 transition-opacity"
@@ -41,5 +43,50 @@
         Build Together
       </a>
     </div>
+
+    <!-- Mobile menu toggle -->
+    <div class="md:hidden w-[72px] flex items-center justify-center border-l border-web5-dark">
+      <button
+        id="mobileMenuToggle"
+        type="button"
+        class="p-2"
+        aria-expanded="false"
+        aria-controls="mobileNav"
+        aria-label="Open menu"
+      >
+        <IconMenu id="mobileMenuIcon" class="w-6 h-6" />
+        <IconX id="mobileCloseIcon" class="w-6 h-6 hidden" />
+      </button>
+    </div>
   </div>
+
+  <nav id="mobileNav" class="md:hidden hidden border-t border-web5-dark bg-web5-beige">
+    <a href="/docs" class="block px-4 py-4 text-button2 text-web5-dark border-b border-web5-dark">
+      Web5 resources
+    </a>
+    <a
+      href="https://github.com/web5fans"
+      class="block px-4 py-4 text-button2 text-web5-dark"
+    >
+      Build Together
+    </a>
+  </nav>
 </header>
+
+<script>
+  const toggle = document.getElementById("mobileMenuToggle");
+  const nav = document.getElementById("mobileNav");
+  const menuIcon = document.getElementById("mobileMenuIcon");
+  const closeIcon = document.getElementById("mobileCloseIcon");
+
+  if (toggle && nav && menuIcon && closeIcon) {
+    toggle.addEventListener("click", () => {
+      const isOpen = !nav.classList.contains("hidden");
+      nav.classList.toggle("hidden", isOpen);
+      menuIcon.classList.toggle("hidden", !isOpen);
+      closeIcon.classList.toggle("hidden", isOpen);
+      toggle.setAttribute("aria-expanded", String(!isOpen));
+      toggle.setAttribute("aria-label", isOpen ? "Open menu" : "Close menu");
+    });
+  }
+</script>
