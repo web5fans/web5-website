@@ -21,6 +21,27 @@ const resources = [
     link: "https://github.com/web5fans",
   },
 ];
+
+const tools = [
+  {
+    title: "DEVELOPER CONSOLE",
+    desc: "Complete Web5 developer toolbox. Debug, explore, and build Web5 apps with full access to DID operations, PDS browser, and ATProto tools.",
+    link: "https://console.web5.fans",
+    buttonText: "Open Console",
+  },
+  {
+    title: "USER PORTAL",
+    desc: "Your entry point to Web5. Create your decentralized identity, discover apps, and manage your data—all without technical complexity.",
+    link: "https://me.web5.fans",
+    buttonText: "Get Started",
+  },
+  {
+    title: "KEYSTORE",
+    desc: "Securely manage your signing keys. Provides cryptographic signing capabilities for all Web5 applications via secure iframe isolation.",
+    link: "https://keystore.web5.fans",
+    buttonText: "Manage Keys",
+  },
+];
 ---
 
 <!-- Additional Resources -->
@@ -49,6 +70,40 @@ const resources = [
             class="border-2 border-web5-dark px-8 py-3 text-button1 text-web5-dark hover:bg-web5-dark hover:text-web5-beige transition-colors w-fit"
           >
             Explore
+          </a>
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<!-- Web5 Tools -->
+<div class="w-full border-t">
+  <!-- Blue Header -->
+  <div
+    class="w-full bg-web5-blue p-12 lg:p-16 flex items-center justify-center"
+  >
+    <h2 class="text-h3 text-web5-dark">WEB5 TOOLS</h2>
+  </div>
+
+  <!-- Tool Cards Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    {
+      tools.map((tool) => (
+        <div class="p-8 lg:p-12 flex flex-col justify-between border-r border-b min-h-[400px]">
+          <div>
+            <h3 class="text-h4 text-web5-dark mb-6">{tool.title}</h3>
+            <p class="text-body text-web5-dark leading-relaxed mb-8">
+              {tool.desc}
+            </p>
+          </div>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href={tool.link}
+            class="border-2 border-web5-dark px-8 py-3 text-button1 text-web5-dark hover:bg-web5-dark hover:text-web5-beige transition-colors w-fit"
+          >
+            {tool.buttonText}
           </a>
         </div>
       ))
